@@ -414,7 +414,7 @@
       </div>
       <div class="card">
         <h3>HTR</h3>
-        <p>Honours Through Research Program</p>
+        <p>Research Scholar Track</p>
       </div>
     </div>
   </section>
@@ -545,6 +545,94 @@
         <p><strong>Role:</strong> Full-Stack Developer</p>
         <p><strong>Tech Stack:</strong> Python, Flask, Anthropic Claude API, HTML, CSS, JavaScript</p>
         <p><strong>Outcome:</strong> Created a 24/7 AI-powered college assistant with multi-turn memory for student support and campus queries.</p>
+      </div>
+      <div class="card">
+        <h3>Job Market Analysis Using Machine Learning and AWS</h3>
+        <p><strong>Role:</strong> Machine Learning & Cloud Analytics Project</p>
+        <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, AWS S3, AWS Glue, Amazon Athena</p>
+        <p><strong>Outcome:</strong> Built a cloud-integrated analytics pipeline to study job roles, salary patterns, and demand across locations and experience levels, and applied machine learning to predict salary trends from job and company attributes.</p>
+        <div style="margin-top: 8px; margin-bottom: 14px;">
+          <span class="tag">AWS</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Data Pipeline</span>
+          <span class="tag">Athena Analytics</span>
+        </div>
+        <details id="job-market-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
+          <summary id="job-market-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
+          <div class="details-content" style="margin-top: 18px; opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease;">
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Project Overview</h4>
+              <p>This project was developed to analyze job market data and extract meaningful insights related to job roles, salary distributions, experience levels, and location-based demand. The main goal was to build a cloud-based analytics pipeline that can handle structured job datasets and generate trend-based insights using machine learning techniques.</p>
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Problem Statement</h4>
+              <p>The job market changes rapidly with evolving technologies, skill requirements, and industry needs. Traditional analysis methods are often manual and static, making it difficult to identify real-time patterns in job demand and salary trends. This project addresses that challenge by combining cloud-based data processing with machine learning to create a scalable and intelligent job market analysis system.</p>
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Workflow</h4>
+              <p>The workflow begins with uploading the job dataset to Amazon S3, which acts as the storage layer. AWS Glue Crawler scans the dataset and automatically detects the schema. The metadata is stored in the AWS Glue Data Catalog, which is then used by Amazon Athena to query the data directly from S3. After performing analytical queries, the processed data is used for feature engineering and machine learning model training in Python. Finally, the system generates insights related to salary trends, job demand, and role distributions.</p>
+              <div style="text-align: center; margin-top: 16px;">
+                <a href="./job-market-workflow.jpg" target="_blank" style="display: inline-block; text-decoration: none;">
+                  <img src="./job-market-workflow.jpg" alt="Workflow diagram for Job Market Analysis Using Machine Learning and AWS" style="width: 100%; max-width: 540px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
+                </a>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Machine Learning Contribution</h4>
+              <p>A machine learning model is used to analyze patterns in the dataset and predict salary trends based on features such as job title, experience level, company size, remote ratio, and location. This helps transform raw employment data into useful predictive insights.</p>
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Key Features</h4>
+              <ul style="padding-left: 20px; color: var(--muted);">
+                <li>Cloud-based storage and querying of job market datasets</li>
+                <li>Automated schema detection using AWS Glue Crawler</li>
+                <li>Serverless SQL analytics with Amazon Athena</li>
+                <li>Data preprocessing and feature engineering using Python and Pandas</li>
+                <li>Salary trend prediction using machine learning</li>
+                <li>Insight generation for job roles, location demand, and experience-level analysis</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 18px;">
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Outcome</h4>
+              <p>The final outcome of the project is an intelligent analytics workflow that provides a better understanding of employment trends and salary patterns. It demonstrates how AWS cloud services and machine learning can be combined to solve real-world data analysis problems in a scalable way.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #ffffff; margin-bottom: 8px;">Tech Stack</h4>
+              <p><strong>Programming:</strong> Python<br>
+              <strong>Libraries:</strong> Pandas, Scikit-learn<br>
+              <strong>Cloud Services:</strong> Amazon S3, AWS Glue, AWS Glue Data Catalog, Amazon Athena</p>
+            </div>
+          </div>
+        </details>
+        <script>
+          (function () {
+            const details = document.getElementById('job-market-details');
+            const summary = document.getElementById('job-market-toggle');
+            const content = details ? details.querySelector('.details-content') : null;
+            if (details && summary && content) {
+              const updateLabel = () => {
+                summary.textContent = details.open ? 'Hide Details' : 'View More Details';
+                if (details.open) {
+                  requestAnimationFrame(() => {
+                    content.style.opacity = '1';
+                    content.style.transform = 'translateY(0)';
+                  });
+                } else {
+                  content.style.opacity = '0';
+                  content.style.transform = 'translateY(10px)';
+                }
+              };
+              updateLabel();
+              details.addEventListener('toggle', updateLabel);
+            }
+          })();
+        </script>
       </div>
     </div>
   </section>
