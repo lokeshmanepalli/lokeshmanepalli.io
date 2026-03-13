@@ -376,7 +376,7 @@
       </p>
       <div class="btn-group">
         <a href="#publications" class="btn btn-primary">View Publications</a>
-        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        <a href="#contact" class="btn btn-secondary">Contact Details</a>
       </div>
     </div>
 
@@ -414,7 +414,7 @@
       </div>
       <div class="card">
         <h3>HTR</h3>
-        <p>Honours Through Research Track</p>
+        <p>Honours Through Research</p>
       </div>
     </div>
   </section>
@@ -559,53 +559,51 @@
         </div>
         <details id="job-market-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
           <summary id="job-market-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-          <div class="details-content" style="margin-top: 18px; opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease;">
-            <div style="display: grid; grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.25fr); gap: 22px; align-items: start;">
-              <div class="card" style="padding: 16px; text-align: center;">
-                <p style="color: #ffffff; font-weight: 700; margin-bottom: 12px;">Workflow Architecture</p>
-                <a href="./job-market-workflow.png" target="_blank" style="display: inline-block; text-decoration: none;">
-                  <img src="./job-market-workflow.png" alt="Workflow diagram for Job Market Analysis Using Machine Learning and AWS" style="width: 100%; max-width: 520px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-                </a>
-                <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the workflow image to enlarge.</p>
+          <div class="details-content" style="margin-top: 18px; display: grid; grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.25fr); gap: 22px; align-items: start;">
+            <div class="card" style="padding: 16px; text-align: center;">
+              <p style="color: #ffffff; font-weight: 700; margin-bottom: 12px;">Workflow Architecture</p>
+              <a href="./job-market-workflow.png" target="_blank" style="display: inline-block; text-decoration: none;">
+                <img src="./job-market-workflow.png" alt="Workflow diagram for Job Market Analysis Using Machine Learning and AWS" style="width: 100%; max-width: 520px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
+              </a>
+              <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the workflow image to enlarge.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px;">
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Project Overview</h4>
+                <p>This project analyzes job market data to extract insights on roles, salary distributions, experience levels, and location-based demand using a cloud-based analytics and machine learning workflow.</p>
               </div>
 
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px;">
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Project Overview</h4>
-                  <p>This project analyzes job market data to extract insights on roles, salary distributions, experience levels, and location-based demand using a cloud-based analytics and machine learning workflow.</p>
-                </div>
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Problem Statement</h4>
+                <p>Traditional job market analysis is often manual and static. This system addresses that limitation by combining cloud data processing and machine learning for scalable, intelligent labor market analysis.</p>
+              </div>
 
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Problem Statement</h4>
-                  <p>Traditional job market analysis is often manual and static. This system addresses that limitation by combining cloud data processing and machine learning for scalable, intelligent labor market analysis.</p>
-                </div>
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Workflow</h4>
+                <p>Amazon S3 stores the dataset, AWS Glue Crawler detects the schema, Glue Data Catalog manages metadata, Athena performs serverless analytics, and Python powers feature engineering and model training.</p>
+              </div>
 
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Workflow</h4>
-                  <p>Amazon S3 stores the dataset, AWS Glue Crawler detects the schema, Glue Data Catalog manages metadata, Athena performs serverless analytics, and Python powers feature engineering and model training.</p>
-                </div>
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Machine Learning</h4>
+                <p>The model predicts salary trends using features such as job title, experience level, company size, remote ratio, and location to transform raw employment data into predictive insights.</p>
+              </div>
 
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Machine Learning</h4>
-                  <p>The model predicts salary trends using features such as job title, experience level, company size, remote ratio, and location to transform raw employment data into predictive insights.</p>
-                </div>
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Key Features</h4>
+                <p>Cloud storage, automated schema detection, Athena-based SQL analytics, Python preprocessing, feature engineering, and salary trend prediction are the core features of this project.</p>
+              </div>
 
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Key Features</h4>
-                  <p>Cloud storage, automated schema detection, Athena-based SQL analytics, Python preprocessing, feature engineering, and salary trend prediction are the core features of this project.</p>
-                </div>
+              <div class="card" style="padding: 16px;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Outcome</h4>
+                <p>The final system provides a scalable analytics workflow for understanding employment trends, salary patterns, and demand shifts across job roles and regions.</p>
+              </div>
 
-                <div class="card" style="padding: 16px;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Outcome</h4>
-                  <p>The final system provides a scalable analytics workflow for understanding employment trends, salary patterns, and demand shifts across job roles and regions.</p>
-                </div>
-
-                <div class="card" style="padding: 16px; grid-column: 1 / -1;">
-                  <h4 style="color: #ffffff; margin-bottom: 8px;">Tech Stack</h4>
-                  <p><strong>Programming:</strong> Python<br>
-                  <strong>Libraries:</strong> Pandas, Scikit-learn<br>
-                  <strong>Cloud Services:</strong> Amazon S3, AWS Glue, AWS Glue Data Catalog, Amazon Athena</p>
-                </div>
+              <div class="card" style="padding: 16px; grid-column: 1 / -1;">
+                <h4 style="color: #ffffff; margin-bottom: 8px;">Tech Stack</h4>
+                <p><strong>Programming:</strong> Python<br>
+                <strong>Libraries:</strong> Pandas, Scikit-learn<br>
+                <strong>Cloud Services:</strong> Amazon S3, AWS Glue, AWS Glue Data Catalog, Amazon Athena</p>
               </div>
             </div>
           </div>
@@ -614,19 +612,9 @@
           (function () {
             const details = document.getElementById('job-market-details');
             const summary = document.getElementById('job-market-toggle');
-            const content = details ? details.querySelector('.details-content') : null;
-            if (details && summary && content) {
+            if (details && summary) {
               const updateLabel = () => {
                 summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-                if (details.open) {
-                  requestAnimationFrame(() => {
-                    content.style.opacity = '1';
-                    content.style.transform = 'translateY(0)';
-                  });
-                } else {
-                  content.style.opacity = '0';
-                  content.style.transform = 'translateY(10px)';
-                }
               };
               updateLabel();
               details.addEventListener('toggle', updateLabel);
