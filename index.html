@@ -3,7 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Lokesh Manepalli | Portfolio</title>
+  <meta name="title" content="Lokesh Manepalli | AI Researcher & Portfolio">
+  <meta name="description" content="Portfolio of Lokesh Manepalli, AI Researcher and student at KLEF. Specializing in Deep Learning, NLP, and Sustainable Energy Systems. Creator of MITRA chatbot.">
+  <meta name="keywords" content="Lokesh Manepalli, Lokesh Manepalli Portfolio, MITRA chatbot, AI Researcher KLEF, Deep Learning Researcher India, Lokesh Manepalli IIT Patna">
+  <meta name="author" content="Lokesh Manepalli">
+  <link rel="canonical" href="https://lokeshmanepalli.github.io/lokeshmanepalli.io/" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lokeshmanepalli.github.io/lokeshmanepalli.io/">
+  <meta property="og:title" content="Lokesh Manepalli | AI Researcher Portfolio">
+  <meta property="og:description" content="Building AI systems for human-centered computing and sustainable infrastructures. First-author presented at IIT Patna.">
+  <meta property="og:image" content="lokesh-photo.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lokesh Manepalli",
+    "url": "https://lokeshmanepalli.github.io/lokeshmanepalli.io/",
+    "affiliation": "Koneru Lakshmaiah Education Foundation",
+    "jobTitle": "AI Researcher",
+    "knowsAbout": ["Deep Learning", "Natural Language Processing", "Emotion-Aware AI", "Renewable Energy Systems"],
+    "sameAs": [
+      "https://www.linkedin.com/in/lokesh-manepalli-4147b928a/",
+      "https://github.com/lokeshmanepalli"
+    ]
+  }
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -204,12 +233,6 @@
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
 
-    .photo-placeholder {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 260px;
-    }
-
     .hero-card h4 {
       margin-bottom: 12px;
       color: #ffffff;
@@ -308,45 +331,27 @@
       header {
         position: static;
       }
-
       .hero {
         grid-template-columns: 1fr;
       }
-
       nav {
         flex-direction: column;
       }
-
       nav ul {
         justify-content: center;
       }
-
       .hero-text h2 {
         font-size: 2.4rem;
       }
     }
-    }
-
-    
 
     @media (max-width: 560px) {
       .hero {
         padding-top: 72px;
       }
-
       .hero-text h2 {
         font-size: 2rem;
       }
-
-      .section-title {
-        font-size: 1.7rem;
-      }
-    }
-
-      .hero-text h2 {
-        font-size: 2rem;
-      }
-
       .section-title {
         font-size: 1.7rem;
       }
@@ -479,9 +484,6 @@
       <p>
         Focused on cybersecurity and data ethics in conversational agents. This study analyzed over 2,300 data breaches across 15 chatbot platforms from 2004 to 2021 and found that 62% of platforms lacked strong encryption while 14% showed vulnerability to data poisoning.
       </p>
-      <p>
-        This served as my foundational research project and directly informed the privacy, security, and data-anonymization framework later used in the MITRA chatbot architecture.
-      </p>
       <span class="tag">Cybersecurity</span>
       <span class="tag">AI Ethics</span>
       <span class="tag">Chatbots</span>
@@ -489,12 +491,9 @@
 
     <div class="publication-item">
       <h3>MITRA: A Deep Learning–Based Emotion-Aware Conversational AI</h3>
-      <div class="publication-meta">First Author • Status: Presented at IIT Patna Research Conference ICADCA (Dec 2025) • Under Review at International Journal of Artificial Intelligence in Education (Springer)</div>
+      <div class="publication-meta">First Author • Status: Presented at IIT Patna Research Conference ICADCA (Dec 2025)</div>
       <p>
         Focused on mental health assessment and monitoring in educational environments. I developed a BiLSTM-CNN hybrid deep learning architecture that achieved 94.7% accuracy in detecting student emotional distress from informal text.
-      </p>
-      <p>
-        The system was built on a privacy-first design, utilizing end-to-end encryption to protect sensitive student data.
       </p>
       <span class="tag">Deep Learning</span>
       <span class="tag">Mental Health AI</span>
@@ -503,12 +502,9 @@
 
     <div class="publication-item">
       <h3>AI-Based Solar Desalination for Green Hydrogen Production</h3>
-      <div class="publication-meta">Co-Authored with Dr. S. Shanmugan • Status: Under Review – Renewable and Sustainable Energy Reviews (Elsevier)</div>
+      <div class="publication-meta">Co-Authored with Dr. S. Shanmugan • Status: Under Review</div>
       <p>
         A comprehensive 70+ page architectural review bridging the Water-Energy-Hydrogen nexus. This work proposes a conceptual digital twin framework and an AI-driven adaptive control system for renewable desalination and green hydrogen generation.
-      </p>
-      <p>
-        The architecture integrates smart photothermal materials for continuous and optimized hydrogen production.
       </p>
       <span class="tag">Renewable Energy</span>
       <span class="tag">Hydrogen</span>
@@ -517,12 +513,9 @@
 
     <div class="publication-item">
       <h3>Interpretable Text Message Spam Detection via a Novel Fuzzy–Bidirectional XGBoost Architecture</h3>
-      <div class="publication-meta">First Author • Status: Manuscript Complete – Ready for Submission</div>
+      <div class="publication-meta">First Author • Status: Manuscript Complete</div>
       <p>
-        Focused on explainable AI, natural language processing, and cybersecurity. I engineered a tri-level feature representation system combining TF-IDF, BiLSTM-based semantic features, and fuzzy linguistic modeling.
-      </p>
-      <p>
-        Integrated with an XGBoost classifier and SHAP analysis, the model achieved 98.24% accuracy and 93.19% F1-score while maintaining strong human-readability and transparency.
+        Focused on explainable AI, natural language processing, and cybersecurity. Engineered a tri-level feature representation system achieving 98.24% accuracy while maintaining strong human-readability through SHAP analysis.
       </p>
       <span class="tag">Explainable AI</span>
       <span class="tag">Spam Detection</span>
@@ -534,131 +527,47 @@
     <h2 class="section-title">Projects</h2>
     <div class="card-grid">
       <div class="card">
-        <h3>Satellite Image Super-Resolution for Noisy Images</h3>
+        <h3>Satellite Image Super-Resolution</h3>
         <p><strong>Role:</strong> Team Lead</p>
-        <p><strong>Tech Focus:</strong> Vanilla GAN, DCGAN, SRGAN, ESRGAN, CycleGAN</p>
-        <p><strong>Outcome:</strong> Achieved a 12% PSNR improvement using ESRGAN on EuroSAT, RESISC45, and SpaceNet datasets.</p>
-        <details id="satellite-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
-          <summary id="satellite-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-          <div style="margin-top: 18px; text-align: center;">
-            <a href="./satellite-super-resolution.png" target="_blank" style="display: inline-block; text-decoration: none;">
-              <img src="./satellite-super-resolution.png" alt="Satellite Image Super-Resolution project result" style="width: 100%; max-width: 620px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            </a>
-            <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the image to enlarge.</p>
-          </div>
-        </details>
-        <script>
-          (function () {
-            const details = document.getElementById('satellite-details');
-            const summary = document.getElementById('satellite-toggle');
-            if (details && summary) {
-              const updateLabel = () => {
-                summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-              };
-              updateLabel();
-              details.addEventListener('toggle', updateLabel);
-            }
-          })();
-        </script>
+        <p><strong>Outcome:</strong> Achieved a 12% PSNR improvement using ESRGAN on EuroSAT and SpaceNet datasets.</p>
       </div>
       <div class="card">
         <h3>Full-Stack Video Streaming Platform</h3>
         <p><strong>Role:</strong> Team Lead</p>
         <p><strong>Tech Stack:</strong> React, Node.js, MySQL</p>
-        <p><strong>Outcome:</strong> Built a scalable platform with adaptive bitrate streaming and secure authentication for 30+ active users.</p>
       </div>
       <div class="card">
-        <h3>KLU Agent Chatbot (Gen-AI College Assistant)</h3>
+        <h3>KLU Agent Chatbot</h3>
         <p><strong>Role:</strong> Full-Stack Developer</p>
-        <p><strong>Tech Stack:</strong> Python, Flask, Anthropic Claude API, HTML, CSS, JavaScript</p>
-        <p><strong>Outcome:</strong> Created a 24/7 AI-powered college assistant with multi-turn memory for student support and campus queries.</p>
+        <p><strong>Tech Stack:</strong> Python, Flask, Anthropic Claude API</p>
       </div>
       <div class="card">
-        <h3>Job Market Analysis Using Machine Learning and AWS</h3>
-        <p><strong>Role:</strong> Machine Learning & Cloud Analytics Project</p>
-        <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, AWS S3, AWS Glue, Amazon Athena</p>
-        <p><strong>Outcome:</strong> Built a cloud-integrated analytics pipeline to study job roles, salary patterns, and demand across locations and experience levels, and applied machine learning to predict salary trends from job and company attributes.</p>
-        <div style="margin-top: 8px; margin-bottom: 14px;">
-          <span class="tag">AWS</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Data Pipeline</span>
-          <span class="tag">Athena Analytics</span>
-        </div>
-        <details id="job-market-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
-          <summary id="job-market-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-          <div style="margin-top: 18px; text-align: center;">
-            <a href="./job-market-workflow.png" target="_blank" style="display: inline-block; text-decoration: none;">
-              <img src="./job-market-workflow.png" alt="Workflow diagram for Job Market Analysis Using Machine Learning and AWS" style="width: 100%; max-width: 620px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            </a>
-            <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the workflow image to enlarge.</p>
-          </div>
-        </details>
-        <script>
-          (function () {
-            const details = document.getElementById('job-market-details');
-            const summary = document.getElementById('job-market-toggle');
-            if (details && summary) {
-              const updateLabel = () => {
-                summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-              };
-              updateLabel();
-              details.addEventListener('toggle', updateLabel);
-            }
-          })();
-        </script>
+        <h3>Job Market Analysis Using AWS</h3>
+        <p><strong>Role:</strong> ML & Cloud Analytics</p>
+        <p><strong>Tech Stack:</strong> Python, AWS S3, Glue, Athena</p>
       </div>
     </div>
   </section>
 
   <section id="experience">
     <h2 class="section-title">Experience & Internship</h2>
-
     <div class="timeline-item">
       <h3>Summer Research Intern – ARCI</h3>
       <div class="timeline-meta">Incoming</div>
       <p>
-        Preparing to join the International Advanced Research Centre for Powder Metallurgy and New Materials (ARCI) for summer research, with a focus aligned toward advanced AI-driven and sustainability-oriented systems research.
+        Preparing to join ARCI for summer research with a focus on advanced AI-driven sustainability-oriented systems.
       </p>
     </div>
   </section>
 
   <section id="conferences">
     <h2 class="section-title">Conferences & Presentations</h2>
-
     <div class="timeline-item">
       <h3>IIT Patna Research Conference – ICADCA</h3>
       <div class="timeline-meta">December 2025</div>
       <p>
-        Presented first-author research work on MITRA, a deep learning–based emotion-aware conversational AI for student mental health assessment and monitoring.
+        Presented first-author research work on MITRA, an emotion-aware conversational AI for mental health.
       </p>
-      <details id="conference-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
-        <summary id="conference-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-        <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
-          <div class="card" style="padding: 16px; overflow: hidden;">
-            <img src="./iit-stage.jpg" alt="Lokesh Manepalli presenting at IIT Patna" style="width: 100%; height: 320px; border-radius: 16px; object-fit: cover; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            <p style="color: #ffffff; font-weight: 700; margin-bottom: 6px;">On-Stage Presentation</p>
-            <p>Presenting MITRA at IIT Patna Research Conference during the technical session, representing my first-author work in emotion-aware conversational AI.</p>
-          </div>
-          <div class="card" style="padding: 16px; overflow: hidden;">
-            <img src="./iit-poster.jpg" alt="Lokesh Manepalli with conference poster at IIT Patna" style="width: 100%; height: 320px; border-radius: 16px; object-fit: cover; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            <p style="color: #ffffff; font-weight: 700; margin-bottom: 6px;">Conference Poster Session</p>
-            <p>Standing with the conference poster during ICADCA, documenting an important academic milestone in my research journey.</p>
-          </div>
-        </div>
-      </details>
-      <script>
-        (function () {
-          const details = document.getElementById('conference-details');
-          const summary = document.getElementById('conference-toggle');
-          if (details && summary) {
-            const updateLabel = () => {
-              summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-            };
-            updateLabel();
-            details.addEventListener('toggle', updateLabel);
-          }
-        })();
-      </script>
     </div>
   </section>
 
@@ -670,18 +579,12 @@
       <span class="skill-pill">CNNs</span>
       <span class="skill-pill">LSTMs</span>
       <span class="skill-pill">GANs</span>
-      <span class="skill-pill">Explainable AI (SHAP)</span>
-      <span class="skill-pill">Text Classification</span>
-      <span class="skill-pill">Sentiment Analysis</span>
-      <span class="skill-pill">TF-IDF</span>
-      <span class="skill-pill">Word Embeddings</span>
+      <span class="skill-pill">SHAP</span>
+      <span class="skill-pill">NLP</span>
       <span class="skill-pill">Python</span>
       <span class="skill-pill">Java</span>
       <span class="skill-pill">Git</span>
       <span class="skill-pill">Docker</span>
-      <span class="skill-pill">Jenkins</span>
-      <span class="skill-pill">Google Colab</span>
-      <span class="skill-pill">LaTeX</span>
       <span class="skill-pill">React</span>
       <span class="skill-pill">Node.js</span>
       <span class="skill-pill">MySQL</span>
@@ -711,10 +614,7 @@
     <div class="timeline-item">
       <h3>Supported by World-Class Mentorship</h3>
       <div class="timeline-meta">Dr. S. Shanmugan</div>
-      <p>
-        Stanford Top 2% Scientist | h-index: 47 | Citations: 7,000+<br>
-        Research Mentor, Research Centre for Solar Energy, KLEF
-      </p>
+      <p>Stanford Top 2% Scientist | Research Mentor, Research Centre for Solar Energy, KLEF</p>
     </div>
   </section>
 
