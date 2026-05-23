@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="6eE1WfbpGUh3ILaeZLK5k9q4TTb4cC0ObDCFNhBoUOk" /> 
-  
+  <meta name="google-site-verification" content="6eE1WfbpGUh3ILaeZLK5k9q4TTb4cC0ObDCFNhBoUOk" />
+
   <title>Lokesh Manepalli | Portfolio</title>
   <meta name="title" content="Lokesh Manepalli | AI Researcher & Portfolio">
   <meta name="description" content="Portfolio of Lokesh Manepalli, AI Researcher and student at KLEF. Specializing in Deep Learning, NLP, and Sustainable Energy Systems. Creator of MITRA chatbot.">
@@ -26,7 +26,7 @@
     "url": "https://lokeshmanepalli.github.io/",
     "affiliation": "Koneru Lakshmaiah Education Foundation",
     "jobTitle": "AI Researcher",
-    "knowsAbout": ["Deep Learning", "Natural Language Processing", "Emotion-Aware AI", "Renewable Energy Systems"],
+    "knowsAbout": ["Deep Learning","Natural Language Processing","Emotion-Aware AI","Renewable Energy Systems"],
     "sameAs": [
       "https://www.linkedin.com/in/lokesh-manepalli-4147b928a/",
       "https://github.com/lokeshmanepalli"
@@ -34,728 +34,1176 @@
   }
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
 
     :root {
-      --bg: #07111f;
-      --bg-soft: #0b1728;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel-strong: rgba(255, 255, 255, 0.1);
-      --text: #edf4ff;
-      --muted: #b8c7df;
-      --accent: #60a5fa;
-      --accent-2: #22d3ee;
-      --border: rgba(255, 255, 255, 0.12);
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
-      --radius: 22px;
+      --bg:       #03060d;
+      --bg2:      #06101e;
+      --bg3:      #0b1829;
+      --sf:       rgba(255,255,255,0.04);
+      --sf2:      rgba(255,255,255,0.075);
+      --bd:       rgba(255,255,255,0.08);
+      --bd2:      rgba(255,255,255,0.16);
+      --tx:       #dce8ff;
+      --mu:       #7a90b3;
+      --dim:      #3a4e6a;
+      --ac:       #6366f1;
+      --acl:      #a5b4fc;
+      --acg:      rgba(99,102,241,0.22);
+      --em:       #10b981;
+      --eml:      #6ee7b7;
+      --emg:      rgba(16,185,129,0.18);
+      --amb:      #f59e0b;
+      --ambl:     #fcd34d;
+      --r:        14px;
+      --rl:       20px;
+      --mw:       1160px;
     }
 
     body {
-      font-family: Inter, Arial, sans-serif;
-      line-height: 1.7;
+      font-family:'Figtree',sans-serif;
+      background:var(--bg);
+      color:var(--tx);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    /* Dot grid background */
+    body::before {
+      content:'';
+      position:fixed; inset:0;
+      background-image:radial-gradient(rgba(99,102,241,0.18) 1px, transparent 1px);
+      background-size:36px 36px;
+      pointer-events:none; z-index:0;
+      mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+
+    /* Ambient glows */
+    body::after {
+      content:'';
+      position:fixed; inset:0;
       background:
-        radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(96, 165, 250, 0.18), transparent 24%),
-        linear-gradient(180deg, #050c16 0%, #091423 45%, #07111f 100%);
-      color: var(--text);
+        radial-gradient(ellipse 60% 40% at 10% -5%, rgba(99,102,241,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 35% at 90% 8%,  rgba(16,185,129,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 105%,rgba(99,102,241,0.07) 0%, transparent 70%);
+      pointer-events:none; z-index:0;
     }
 
-    a {
-      color: var(--accent-2);
-      text-decoration: none;
+    /* ── SCROLL PROGRESS ── */
+    #sp {
+      position:fixed; top:0; left:0;
+      height:2px; width:0;
+      background:linear-gradient(90deg,var(--ac),var(--em));
+      z-index:9999;
+      transition:width 0.08s linear;
+      box-shadow:0 0 8px var(--acg);
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* ── BACK TO TOP ── */
+    #btt {
+      position:fixed; bottom:28px; right:28px;
+      width:42px; height:42px;
+      background:var(--sf2);
+      border:1px solid var(--bd2);
+      border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; z-index:999;
+      opacity:0; pointer-events:none;
+      transition:all 0.3s;
+      color:var(--acl); font-size:1.1rem;
+      backdrop-filter:blur(10px);
+      text-decoration:none;
+    }
+    #btt.show { opacity:1; pointer-events:all; }
+    #btt:hover {
+      background:rgba(99,102,241,0.15);
+      border-color:rgba(99,102,241,0.5);
+      transform:translateY(-3px);
     }
 
+    /* ── HEADER ── */
     header {
-      background: rgba(7, 17, 31, 0.7);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      color: white;
-      padding: 18px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position:sticky; top:0; z-index:1000;
+      background:rgba(3,6,13,0.88);
+      backdrop-filter:blur(24px) saturate(1.6);
+      border-bottom:1px solid var(--bd);
     }
 
     nav {
-      max-width: 1180px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      gap: 18px;
+      max-width:var(--mw); margin:auto;
+      padding:0 28px; height:62px;
+      display:flex; align-items:center;
+      justify-content:space-between; gap:16px;
     }
 
-    nav h1 {
-      font-size: 1.25rem;
-      letter-spacing: 0.4px;
+    .nlogo {
+      font-family:'Outfit',sans-serif;
+      font-weight:700; font-size:1.05rem;
+      color:var(--tx); text-decoration:none;
+      letter-spacing:-0.01em; white-space:nowrap;
+      flex-shrink:0; background:none; border:none;
+      padding:0;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+    .nlinks {
+      list-style:none;
+      display:flex; gap:2px;
+      overflow-x:auto; scrollbar-width:none;
+    }
+    .nlinks::-webkit-scrollbar { display:none; }
+    .nlinks li a {
+      color:var(--mu); text-decoration:none;
+      font-family:'Outfit',sans-serif;
+      font-size:0.8rem; font-weight:500;
+      letter-spacing:0.02em;
+      padding:6px 9px; border-radius:8px;
+      transition:all 0.2s; white-space:nowrap;
+      display:block;
+    }
+    .nlinks li a:hover,
+    .nlinks li a.active {
+      color:var(--tx); background:var(--sf2);
+      text-decoration:none;
     }
 
-    nav ul li a {
-      color: #d8e7ff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 0.25s ease;
+    /* Hamburger */
+    .hb {
+      display:none; flex-direction:column;
+      gap:5px; cursor:pointer; padding:4px;
+      flex-shrink:0; background:none; border:none;
     }
-
-    nav ul li a:hover {
-      color: var(--accent-2);
+    .hb span {
+      display:block; width:22px; height:2px;
+      background:var(--mu); border-radius:2px;
+      transition:all 0.3s;
     }
+    .hb.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .hb.open span:nth-child(2){ opacity:0; }
+    .hb.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
+    .mmenu {
+      display:none;
+      position:absolute; top:62px; left:0; right:0;
+      background:rgba(4,9,20,0.98);
+      backdrop-filter:blur(24px);
+      border-bottom:1px solid var(--bd);
+      padding:14px 24px 20px;
+      z-index:999;
+    }
+    .mmenu.open { display:block; }
+    .mmenu ul { list-style:none; display:flex; flex-direction:column; gap:2px; }
+    .mmenu ul li a {
+      display:block; padding:11px 14px;
+      color:var(--mu); text-decoration:none;
+      font-family:'Outfit',sans-serif;
+      font-size:0.93rem; font-weight:500;
+      border-radius:8px; transition:all 0.2s;
+    }
+    .mmenu ul li a:hover { color:var(--tx); background:var(--sf2); }
+
+    /* ── PAGE WRAPPER ── */
+    .pw { position:relative; z-index:1; }
+
+    /* ── HERO ── */
     .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 92px 20px 55px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 34px;
-      align-items: center;
+      max-width:var(--mw); margin:0 auto;
+      padding:90px 28px 68px;
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      gap:56px; align-items:start;
     }
 
-    .hero-text h2 {
-      font-size: 3.2rem;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      color: #ffffff;
+    .badge {
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:'Outfit',sans-serif;
+      font-size:0.73rem; font-weight:600;
+      letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--eml);
+      background:rgba(16,185,129,0.1);
+      border:1px solid rgba(16,185,129,0.28);
+      padding:6px 14px; border-radius:999px;
+      margin-bottom:24px;
+    }
+    .badge::before {
+      content:''; width:6px; height:6px;
+      background:var(--em); border-radius:50%;
+      animation:pdot 2s ease-in-out infinite;
+    }
+    @keyframes pdot {
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%{ opacity:0.35; transform:scale(0.6); }
     }
 
-    .hero-text h3 {
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: #8ddcff;
-      margin-bottom: 20px;
+    .hname {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(3.8rem,7.5vw,6.4rem);
+      line-height:0.92; letter-spacing:0.01em;
+      background:linear-gradient(140deg,#fff 0%,#c8d8ff 45%,var(--acl) 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      margin-bottom:18px;
     }
 
-    .hero-text p {
-      font-size: 1.06rem;
-      color: var(--muted);
-      margin-bottom: 28px;
-      max-width: 680px;
+    .hsub {
+      font-family:'Outfit',sans-serif;
+      font-size:1rem; font-weight:500;
+      color:var(--acl); margin-bottom:20px;
+      min-height:1.6em;
+    }
+    .cursor {
+      display:inline-block; width:2px; height:1em;
+      background:var(--acl); margin-left:2px;
+      vertical-align:text-bottom;
+      animation:blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+    .hdesc {
+      font-size:1.02rem; color:var(--mu);
+      margin-bottom:36px; max-width:540px;
+      line-height:1.8;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+    .btnrow { display:flex; gap:14px; flex-wrap:wrap; }
 
     .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-      border: 1px solid transparent;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:13px 26px; border-radius:10px;
+      text-decoration:none;
+      font-family:'Outfit',sans-serif;
+      font-weight:600; font-size:0.9rem;
+      transition:all 0.25s; border:1px solid transparent;
+    }
+    .btnp {
+      background:linear-gradient(135deg,var(--ac),#4f46e5);
+      color:#fff;
+      box-shadow:0 8px 28px var(--acg);
+    }
+    .btnp:hover {
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px var(--acg);
+      text-decoration:none;
+    }
+    .btns {
+      background:var(--sf); color:var(--tx);
+      border-color:var(--bd2);
+    }
+    .btns:hover {
+      background:var(--sf2); transform:translateY(-2px);
+      text-decoration:none;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #04111f;
-      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.22);
+    /* Hero side */
+    .hside { display:flex; flex-direction:column; gap:18px; }
+
+    .photowrap {
+      border-radius:var(--rl); overflow:hidden;
+      border:1px solid var(--bd2);
+      box-shadow:0 0 0 1px rgba(99,102,241,0.14),0 24px 60px rgba(0,0,0,0.45);
+      background:var(--bg3); position:relative;
+    }
+    .photowrap::after {
+      content:''; position:absolute; inset:0;
+      border-radius:var(--rl);
+      background:linear-gradient(160deg,rgba(99,102,241,0.13) 0%,transparent 55%);
+      pointer-events:none;
+    }
+    .photowrap img { width:100%; display:block; border-radius:var(--rl); }
+
+    /* Animated glow ring on photo */
+    .photowrap::before {
+      content:''; position:absolute;
+      inset:-2px; border-radius:calc(var(--rl) + 2px);
+      background:conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(99,102,241,0.5) 60deg,
+        rgba(16,185,129,0.4) 120deg,
+        transparent 180deg,
+        transparent 240deg,
+        rgba(99,102,241,0.3) 300deg,
+        transparent 360deg
+      );
+      animation:spin 6s linear infinite;
+      z-index:-1;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    .hlcard {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-radius:var(--rl); padding:22px;
+      backdrop-filter:blur(10px);
+    }
+    .hlcard h4 {
+      font-family:'Outfit',sans-serif;
+      font-size:0.71rem; font-weight:700;
+      letter-spacing:0.11em; text-transform:uppercase;
+      color:var(--acl); margin-bottom:14px;
+    }
+    .hli {
+      display:flex; gap:10px; align-items:flex-start;
+      padding:9px 0; border-bottom:1px solid var(--bd);
+      color:var(--mu); font-size:0.87rem;
+    }
+    .hli:last-child { border-bottom:none; }
+    .hli::before {
+      content:'›'; color:var(--acl);
+      font-size:1.1rem; line-height:1.3; flex-shrink:0;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      text-decoration: none;
-      box-shadow: 0 14px 36px rgba(34, 211, 238, 0.3);
+    /* ── SECTION SHELL ── */
+    .sec {
+      max-width:var(--mw); margin:0 auto;
+      padding:52px 28px;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.03);
-      color: #eef6ff;
-      border: 1px solid var(--border);
+    .sechd {
+      display:flex; align-items:baseline;
+      gap:14px; margin-bottom:32px;
+    }
+    .sectitle {
+      font-family:'Outfit',sans-serif;
+      font-size:1.85rem; font-weight:700;
+      color:var(--tx); letter-spacing:-0.02em;
+    }
+    .sechd::after {
+      content:''; flex:1; height:1px;
+      background:var(--bd); margin-left:8px;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-      text-decoration: none;
-      transform: translateY(-2px);
+    /* ── STATS ── */
+    .sgrid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .sc {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-radius:var(--r);
+      padding:24px 20px; text-align:center;
+      transition:all 0.3s; position:relative; overflow:hidden;
+    }
+    .sc::after {
+      content:''; position:absolute;
+      bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(90deg,var(--ac),var(--em));
+      transform:scaleX(0); transition:transform 0.3s;
+      transform-origin:left;
+    }
+    .sc:hover {
+      transform:translateY(-4px);
+      border-color:var(--bd2); background:var(--sf2);
+    }
+    .sc:hover::after { transform:scaleX(1); }
+    .sv {
+      font-family:'Outfit',sans-serif;
+      font-size:1.75rem; font-weight:800;
+      color:var(--tx); line-height:1.1; margin-bottom:6px;
+    }
+    .sl { font-size:0.84rem; color:var(--mu); }
+
+    /* ── ABOUT ── */
+    .aboutcard {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-left:3px solid var(--ac);
+      border-radius:var(--r);
+      padding:28px 32px;
+    }
+    .aboutcard p {
+      color:var(--mu); margin-bottom:14px;
+      font-size:0.97rem; line-height:1.8;
+    }
+    .aboutcard p:last-child { margin-bottom:0; }
+
+    /* ── INTERESTS ── */
+    .ipwrap { display:flex; flex-wrap:wrap; gap:10px; }
+    .ip {
+      background:var(--sf); border:1px solid var(--bd);
+      color:var(--tx); padding:9px 16px; border-radius:10px;
+      font-family:'Outfit',sans-serif;
+      font-size:0.875rem; font-weight:500;
+      transition:all 0.2s; cursor:default;
+    }
+    .ip:hover {
+      border-color:rgba(99,102,241,0.5);
+      background:rgba(99,102,241,0.08);
+      color:var(--acl); transform:translateY(-2px);
     }
 
-    .hero-card,
-    .card,
-    .publication-item,
-    .timeline-item {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+    /* ── PUB CARDS ── */
+    .pubstack { display:flex; flex-direction:column; gap:16px; }
+
+    .pub {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-radius:var(--rl);
+      padding:26px 28px;
+      transition:all 0.28s;
+      position:relative; overflow:hidden;
+    }
+    .pub::before {
+      content:''; position:absolute;
+      top:0; left:0; width:3px; height:100%;
+      background:linear-gradient(180deg,var(--ac),transparent);
+      border-radius:3px 0 0 3px;
+    }
+    /* Animated gradient border for featured */
+    .pub.feat {
+      border-color:transparent;
+      background:linear-gradient(var(--bg2),var(--bg2)) padding-box,
+                 linear-gradient(135deg,rgba(245,158,11,0.5),rgba(99,102,241,0.5),rgba(16,185,129,0.4)) border-box;
+    }
+    .pub.feat::before {
+      background:linear-gradient(180deg,var(--amb),var(--ac));
+    }
+    .pub:hover {
+      transform:translateY(-3px);
+      border-color:var(--bd2);
+      background:var(--sf2);
+      box-shadow:0 14px 44px rgba(0,0,0,0.32);
+    }
+    .pub.feat:hover {
+      background:linear-gradient(var(--bg3),var(--bg3)) padding-box,
+                 linear-gradient(135deg,rgba(245,158,11,0.6),rgba(99,102,241,0.6),rgba(16,185,129,0.5)) border-box;
+    }
+    .pub h3 {
+      font-family:'Outfit',sans-serif;
+      font-size:1.04rem; font-weight:600;
+      color:var(--tx); margin-bottom:8px; line-height:1.4;
+    }
+    .pmeta {
+      font-family:'Outfit',sans-serif;
+      font-size:0.81rem; font-weight:600;
+      color:var(--acl); margin-bottom:12px;
+    }
+    .pmeta.f { color:var(--ambl); }
+    .pub p {
+      color:var(--mu); font-size:0.92rem;
+      margin-bottom:10px; line-height:1.7;
     }
 
-    .hero-card:hover,
-    .card:hover,
-    .publication-item:hover,
-    .timeline-item:hover,
-    .photo-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 50px rgba(34, 211, 238, 0.12), 0 18px 40px rgba(0, 0, 0, 0.24);
-      border-color: rgba(141, 220, 255, 0.28);
-      background: rgba(255, 255, 255, 0.075);
-    }
-
-    .hero-side {
-      display: grid;
-      gap: 18px;
-    }
-
-    .photo-card {
-      min-height: 370px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-    }
-
-    .hero-card h4 {
-      margin-bottom: 12px;
-      color: #ffffff;
-      font-size: 1.08rem;
-    }
-
-    .hero-card ul {
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 34px 20px 42px;
-    }
-
-    .section-title {
-      font-size: 2.1rem;
-      color: #ffffff;
-      margin-bottom: 20px;
-      letter-spacing: 0.2px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-
-    .card h3,
-    .publication-item h3,
-    .timeline-item h3 {
-      margin-bottom: 10px;
-      color: #ffffff;
-      line-height: 1.35;
-    }
-
-    .card p,
-    .publication-item p,
-    .timeline-item p {
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
+    /* ── TAGS ── */
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
     .tag {
-      display: inline-block;
-      background: rgba(96, 165, 250, 0.14);
-      color: #c8ecff;
-      border: 1px solid rgba(96, 165, 250, 0.24);
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      margin-right: 8px;
-      margin-top: 8px;
+      font-family:'Outfit',sans-serif;
+      font-size:0.77rem; font-weight:600;
+      background:rgba(99,102,241,0.1);
+      color:var(--acl);
+      border:1px solid rgba(99,102,241,0.22);
+      padding:4px 11px; border-radius:6px;
     }
 
-    .publication-meta,
-    .timeline-meta {
-      font-size: 0.94rem;
-      color: #7dd3fc;
-      margin-bottom: 12px;
-      font-weight: 700;
+    /* ── PROJECT GRID ── */
+    .pgrid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
+      gap:18px;
+    }
+    .pc {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-radius:var(--rl); padding:24px;
+      transition:all 0.28s;
+      display:flex; flex-direction:column;
+    }
+    .pc:hover {
+      transform:translateY(-4px);
+      border-color:rgba(16,185,129,0.32);
+      background:var(--sf2);
+      box-shadow:0 0 32px var(--emg),0 16px 40px rgba(0,0,0,0.3);
+    }
+    .pc h3 {
+      font-family:'Outfit',sans-serif;
+      font-size:1rem; font-weight:600;
+      color:var(--tx); margin-bottom:12px; line-height:1.4;
+    }
+    .pm { display:flex; flex-direction:column; gap:5px; margin-bottom:12px; }
+    .pm p { font-size:0.87rem; color:var(--mu); }
+    .pm p strong { color:var(--tx); font-weight:600; }
+    .po {
+      margin-top:auto; padding-top:12px;
+      border-top:1px solid var(--bd);
+      font-size:0.87rem; color:var(--eml);
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    /* ── EXPAND DETAILS ── */
+    .xd {
+      margin-top:16px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--bd);
+      border-radius:12px; padding:14px 16px 10px;
+      overflow:hidden;
+    }
+    .xd summary {
+      cursor:pointer; color:var(--acl);
+      font-family:'Outfit',sans-serif;
+      font-weight:600; font-size:0.87rem;
+      list-style:none;
+      display:flex; align-items:center; gap:7px;
+    }
+    .xd summary::before {
+      content:'▸'; font-size:0.8rem;
+      transition:transform 0.2s;
+    }
+    .xd[open] summary::before { transform:rotate(90deg); }
+    .xdi { margin-top:14px; text-align:center; }
+    .xdi img {
+      width:100%; max-width:580px;
+      border-radius:12px; border:1px solid var(--bd2);
+    }
+    .xdc { margin-top:8px; font-size:0.83rem; color:var(--mu); }
+
+    /* ── TIMELINE ── */
+    .tl { display:flex; flex-direction:column; gap:16px; }
+    .tc {
+      background:var(--sf);
+      border:1px solid var(--bd);
+      border-radius:var(--rl); padding:24px 28px;
+      transition:all 0.28s; position:relative;
+    }
+    .tc::after {
+      content:''; position:absolute;
+      right:26px; top:26px;
+      width:8px; height:8px;
+      background:var(--ac); border-radius:50%;
+      box-shadow:0 0 8px var(--acg);
+    }
+    .tc:hover {
+      transform:translateY(-3px);
+      border-color:var(--bd2); background:var(--sf2);
+    }
+    .tc h3 {
+      font-family:'Outfit',sans-serif;
+      font-size:1.04rem; font-weight:600;
+      color:var(--tx); margin-bottom:6px;
+    }
+    .tcm {
+      font-family:'Outfit',sans-serif;
+      font-size:0.8rem; font-weight:700;
+      color:var(--eml); margin-bottom:12px;
+      text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .tc p {
+      color:var(--mu); font-size:0.92rem;
+      line-height:1.7; margin-bottom:6px;
+    }
+    .tc p:last-child { margin-bottom:0; }
+
+    /* Conference photos */
+    .cgrid {
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:16px;
+    }
+    .cpc {
+      background:var(--sf2);
+      border:1px solid var(--bd2);
+      border-radius:14px; overflow:hidden;
+    }
+    .cpc img {
+      width:100%; height:250px;
+      object-fit:cover; display:block;
+    }
+    .cpcc { padding:14px 16px; }
+    .cpcc strong {
+      display:block; color:var(--tx);
+      font-weight:600; margin-bottom:4px; font-size:0.92rem;
+    }
+    .cpcc span { color:var(--mu); font-size:0.86rem; }
+
+    /* ── SKILLS ── */
+    .skwrap { display:flex; flex-wrap:wrap; gap:10px; }
+    .sk {
+      font-family:'Outfit',sans-serif;
+      font-size:0.85rem; font-weight:500;
+      background:var(--sf); border:1px solid var(--bd);
+      color:var(--tx); padding:8px 16px;
+      border-radius:8px; transition:all 0.2s; cursor:default;
+    }
+    .sk:hover {
+      border-color:rgba(99,102,241,0.42);
+      background:rgba(99,102,241,0.08); color:var(--acl);
     }
 
-    .skill-pill {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: #dceafe;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    /* ── CONTACT ── */
+    .ctgrid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .ctc {
+      background:var(--sf); border:1px solid var(--bd);
+      border-radius:var(--r);
+      padding:24px; text-align:center;
+      transition:all 0.25s;
+    }
+    .ctc:hover {
+      border-color:rgba(99,102,241,0.38);
+      background:rgba(99,102,241,0.06);
+      transform:translateY(-3px);
+    }
+    .ctc h3 {
+      font-family:'Outfit',sans-serif;
+      font-size:0.71rem; font-weight:700;
+      letter-spacing:0.1em; text-transform:uppercase;
+      color:var(--mu); margin-bottom:10px;
+    }
+    .ctc a {
+      color:var(--acl); text-decoration:none;
+      font-size:0.88rem; font-weight:500;
+    }
+    .ctc a:hover { text-decoration:underline; }
+    /* contact icon */
+    .ct-icon {
+      font-size:1.5rem; margin-bottom:10px;
+      display:block;
     }
 
+    /* ── REFERENCE ── */
+    .refc {
+      background:var(--sf); border:1px solid var(--bd);
+      border-radius:var(--rl); padding:28px;
+    }
+    .refc h3 {
+      font-family:'Outfit',sans-serif;
+      font-size:1rem; font-weight:600;
+      color:var(--tx); margin-bottom:6px;
+    }
+    .refname {
+      font-family:'Outfit',sans-serif;
+      font-size:1.08rem; font-weight:700;
+      color:var(--acl); margin-bottom:6px;
+    }
+    .refc p { color:var(--mu); font-size:0.92rem; }
+
+    /* ── FOOTER ── */
     footer {
-      background: rgba(4, 9, 18, 0.82);
-      color: #d6e6ff;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 34px;
-      border-top: 1px solid var(--border);
+      border-top:1px solid var(--bd);
+      margin-top:44px; padding:32px 24px;
+      text-align:center;
     }
+    footer p { color:var(--mu); font-size:0.87rem; line-height:1.8; }
+    footer a { color:var(--acl); text-decoration:none; }
 
-    footer a {
-      color: var(--accent-2);
-      text-decoration: none;
+    /* ── REVEAL ── */
+    .rv {
+      opacity:0; transform:translateY(24px);
+      transition:opacity 0.6s ease,transform 0.6s ease;
     }
+    .rv.on { opacity:1; transform:none; }
 
-    @media (max-width: 920px) {
-      header {
-        position: static;
-      }
+    /* ── RESPONSIVE ── */
+    @media (max-width:860px){
       .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
+        padding:52px 20px 40px;
       }
-      nav {
-        flex-direction: column;
-      }
-      nav ul {
-        justify-content: center;
-      }
-      .hero-text h2 {
-        font-size: 2.4rem;
-      }
+      .sgrid { grid-template-columns:repeat(2,1fr); }
+      .ctgrid { grid-template-columns:1fr; }
+      .nlinks { display:none; }
+      .hb { display:flex; }
     }
-
-    @media (max-width: 560px) {
-      .hero {
-        padding-top: 72px;
-      }
-      .hero-text h2 {
-        font-size: 2rem;
-      }
-      .section-title {
-        font-size: 1.7rem;
-      }
+    @media (max-width:560px){
+      .hname { font-size:3.4rem; }
+      .sectitle { font-size:1.6rem; }
+      .pgrid { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <h1>Lokesh Manepalli</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#interests">Interests</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#conferences">Conferences</a></li>
-        <li><a href="#featured-research">Featured</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#references">Reference</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Hi, I’m Lokesh Manepalli</h2>
-      <h3>Undergraduate Student | AI Researcher | Deep Learning | NLP | Renewable Energy Systems</h3>
-      <p>
-        Developing intelligent, systems-level AI solutions to solve real-world challenges in human-centered computing and sustainable energy. Incoming Research Intern at ARCI and First-Author presented at IIT Patna.
-      </p>
-      <div class="btn-group">
-        <a href="#publications" class="btn btn-primary">View Publications</a>
-        <a href="#contact" class="btn btn-secondary">Contact Details</a>
-      </div>
-    </div>
+  <div id="sp"></div>
 
-    <div class="hero-side">
-      <div class="photo-card">
-        <img src="lokesh-photo.jpg" alt="Lokesh Manepalli" style="width: 100%; max-width: 320px; border-radius: 20px; object-fit: cover; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 18px 40px rgba(0,0,0,0.28);" />
-      </div>
+  <!-- Back to top -->
+  <a href="#" id="btt" aria-label="Back to top">↑</a>
 
-      <div class="hero-card">
-        <h4>Current Highlights</h4>
+  <div class="pw">
+
+    <!-- ── NAV ── -->
+    <header>
+      <nav>
+        <a href="#" class="nlogo">Lokesh Manepalli</a>
+        <ul class="nlinks" id="nl">
+          <li><a href="#about">About</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#publications">Papers</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#conferences">Conferences</a></li>
+          <li><a href="#featured-research">Featured</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#references">Reference</a></li>
+        </ul>
+        <div class="hb" id="hb"><span></span><span></span><span></span></div>
+      </nav>
+      <div class="mmenu" id="mm">
         <ul>
-          <li>Incoming Summer Research Intern at ARCI</li>
-          <li>First-author research presented at IIT Patna Research Conference ICADCA (Dec 2025)</li>
-          <li>Working across AI for mental health, NLP, explainable AI, and renewable energy systems</li>
-          <li>Building end-to-end, systems-level research architectures for real-world impact</li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#publications">Papers</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#conferences">Conferences</a></li>
+          <li><a href="#featured-research">Featured</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#references">Reference</a></li>
         </ul>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="stats">
-    <h2 class="section-title">Achievements at a Glance</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>IIT Patna</h3>
-        <p>First-Author Presenter</p>
-      </div>
-      <div class="card">
-        <h3>ARCI</h3>
-        <p>Incoming Research Intern</p>
-      </div>
-      <div class="card">
-        <h3>4</h3>
-        <p>Research Works</p>
-      </div>
-      <div class="card">
-        <h3>HTR</h3>
-        <p>Honours Through Research Program</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-      <p>
-        I am an undergraduate researcher in the Honors Through Research (HTR) Program at Koneru Lakshmaiah Education Foundation (KLEF), specializing in Artificial Intelligence for Computational Intelligence.
-      </p>
-      <p>
-        My research philosophy is driven by a systems-level approach: I do not just train algorithms; I build end-to-end architectures that solve complex, real-world problems. Currently, my work spans two critical domains: Human-Computer Interaction (Mental Health) and the Water-Energy Nexus (Renewable Energy).
-      </p>
-      <p>
-        I am currently working under the mentorship of Dr. S. Shanmugan and am preparing to join the International Advanced Research Centre for Powder Metallurgy and New Materials (ARCI) as a Summer Research Intern. After completing my B.Tech, I intend to pursue a Fast-Track PhD in Germany to continue my work on AI-driven sustainable infrastructures.
-      </p>
-    </div>
-  </section>
-
-  <section id="interests">
-    <h2 class="section-title">Research Interests</h2>
-    <div class="skills">
-      <span class="skill-pill">Emotion-Aware AI</span>
-      <span class="skill-pill">Natural Language Processing</span>
-      <span class="skill-pill">Explainable AI</span>
-      <span class="skill-pill">Human-Centered Computing</span>
-      <span class="skill-pill">AI for Mental Health</span>
-      <span class="skill-pill">Renewable Energy Systems</span>
-      <span class="skill-pill">Water-Energy Nexus</span>
-      <span class="skill-pill">AI-Driven Sustainable Infrastructure</span>
-    </div>
-  </section>
-
-  <section id="featured-research">
-    <h2 class="section-title">Featured Research</h2>
-    <div class="publication-item">
-      <h3>MITRA: A Deep Learning–Based Emotion-Aware Conversational AI</h3>
-      <div class="publication-meta">Featured Work</div>
-      <p>
-        MITRA is a privacy-first, deep learning–based conversational AI system designed for student mental health assessment and monitoring in educational environments. The architecture combines BiLSTM and CNN models to identify emotional distress from informal text with 94.7% accuracy.
-      </p>
-      <p>
-        This work was presented at IIT Patna Research Conference ICADCA (Dec 2025) and reflects my broader research vision of building intelligent, human-centered systems that are both technically strong and ethically grounded.
-      </p>
-      <span class="tag">Featured</span>
-      <span class="tag">Presented at IIT Patna</span>
-      <span class="tag">Privacy-First AI</span>
-    </div>
-  </section>
-
-  <section id="publications">
-    <h2 class="section-title">Research Papers & Publications</h2>
-
-    <div class="publication-item">
-      <h3>Data and Privacy Risks in AI Chatbots</h3>
-      <div class="publication-meta">Independent Research • Status: Completed</div>
-      <p>
-        Focused on cybersecurity and data ethics in conversational agents. This study analyzed over 2,300 data breaches across 15 chatbot platforms from 2004 to 2021 and found that 62% of platforms lacked strong encryption while 14% showed vulnerability to data poisoning.
-      </p>
-      <p>
-        This served as my foundational research project and directly informed the privacy, security, and data-anonymization framework later used in the MITRA chatbot architecture.
-      </p>
-      <span class="tag">Cybersecurity</span>
-      <span class="tag">AI Ethics</span>
-      <span class="tag">Chatbots</span>
-    </div>
-
-    <div class="publication-item">
-      <h3>MITRA: A Deep Learning–Based Emotion-Aware Conversational AI</h3>
-      <div class="publication-meta">First Author • Status: Presented at IIT Patna Research Conference ICADCA (Dec 2025) • Under Review at International Journal of Artificial Intelligence in Education (Springer)</div>
-      <p>
-        Focused on mental health assessment and monitoring in educational environments. I developed a BiLSTM-CNN hybrid deep learning architecture that achieved 94.7% accuracy in detecting student emotional distress from informal text.
-      </p>
-      <p>
-        The system was built on a privacy-first design, utilizing end-to-end encryption to protect sensitive student data.
-      </p>
-      <span class="tag">Deep Learning</span>
-      <span class="tag">Mental Health AI</span>
-      <span class="tag">NLP</span>
-    </div>
-
-    <div class="publication-item">
-      <h3>AI-Based Solar Desalination for Green Hydrogen Production</h3>
-      <div class="publication-meta">Co-Authored with Dr. S. Shanmugan • Status: Under Review – Renewable and Sustainable Energy Reviews (Elsevier)</div>
-      <p>
-        A comprehensive 70+ page architectural review bridging the Water-Energy-Hydrogen nexus. This work proposes a conceptual digital twin framework and an AI-driven adaptive control system for renewable desalination and green hydrogen generation.
-      </p>
-      <p>
-        The architecture integrates smart photothermal materials for continuous and optimized hydrogen production.
-      </p>
-      <span class="tag">Renewable Energy</span>
-      <span class="tag">Hydrogen</span>
-      <span class="tag">Solar Desalination</span>
-    </div>
-
-    <div class="publication-item">
-      <h3>Interpretable Text Message Spam Detection via a Novel Fuzzy–Bidirectional XGBoost Architecture</h3>
-      <div class="publication-meta">First Author • Status: Manuscript Complete – Ready for Submission</div>
-      <p>
-        Focused on explainable AI, natural language processing, and cybersecurity. I engineered a tri-level feature representation system combining TF-IDF, BiLSTM-based semantic features, and fuzzy linguistic modeling.
-      </p>
-      <p>
-        Integrated with an XGBoost classifier and SHAP analysis, the model achieved 98.24% accuracy and 93.19% F1-score while maintaining strong human-readability and transparency.
-      </p>
-      <span class="tag">Explainable AI</span>
-      <span class="tag">Spam Detection</span>
-      <span class="tag">XGBoost</span>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Satellite Image Super-Resolution for Noisy Images</h3>
-        <p><strong>Role:</strong> Team Lead</p>
-        <p><strong>Tech Focus:</strong> Vanilla GAN, DCGAN, SRGAN, ESRGAN, CycleGAN</p>
-        <p><strong>Outcome:</strong> Achieved a 12% PSNR improvement using ESRGAN on EuroSAT, RESISC45, and SpaceNet datasets.</p>
-        
-        <details id="satellite-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
-          <summary id="satellite-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-          <div style="margin-top: 18px; text-align: center;">
-            <a href="./satellite-super-resolution.png" target="_blank" style="display: inline-block; text-decoration: none;">
-              <img src="./satellite-super-resolution.png" alt="Satellite Image Super-Resolution project result" style="width: 100%; max-width: 620px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            </a>
-            <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the image to enlarge.</p>
-          </div>
-        </details>
-        <script>
-          (function () {
-            const details = document.getElementById('satellite-details');
-            const summary = document.getElementById('satellite-toggle');
-            if (details && summary) {
-              const updateLabel = () => {
-                summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-              };
-              updateLabel();
-              details.addEventListener('toggle', updateLabel);
-            }
-          })();
-        </script>
-      </div>
-
-      <div class="card">
-        <h3>Full-Stack Video Streaming Platform</h3>
-        <p><strong>Role:</strong> Team Lead</p>
-        <p><strong>Tech Stack:</strong> React, Node.js, MySQL</p>
-        <p><strong>Outcome:</strong> Built a scalable platform with adaptive bitrate streaming and secure authentication for 30+ active users.</p>
-      </div>
-
-      <div class="card">
-        <h3>KLU Agent Chatbot (Gen-AI College Assistant)</h3>
-        <p><strong>Role:</strong> Full-Stack Developer</p>
-        <p><strong>Tech Stack:</strong> Python, Flask, Anthropic Claude API, HTML, CSS, JavaScript</p>
-        <p><strong>Outcome:</strong> Created a 24/7 AI-powered college assistant with multi-turn memory for student support and campus queries.</p>
-      </div>
-
-      <div class="card">
-        <h3>Job Market Analysis Using Machine Learning and AWS</h3>
-        <p><strong>Role:</strong> Machine Learning & Cloud Analytics Project</p>
-        <p><strong>Tech Stack:</strong> Python, Pandas, Scikit-learn, AWS S3, AWS Glue, Amazon Athena</p>
-        <p><strong>Outcome:</strong> Built a cloud-integrated analytics pipeline to study job roles, salary patterns, and demand across locations.</p>
-        <div style="margin-top: 8px; margin-bottom: 14px;">
-          <span class="tag">AWS</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Data Pipeline</span>
-          <span class="tag">Athena Analytics</span>
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="rv">
+        <div class="badge">Available for Research Collaboration</div>
+        <h1 class="hname">Lokesh<br>Manepalli</h1>
+        <p class="hsub"><span id="tw"></span><span class="cursor"></span></p>
+        <p class="hdesc">
+          Developing intelligent, systems-level AI solutions to solve real-world challenges in
+          human-centered computing and sustainable energy. Incoming Research Intern at ARCI
+          and First-Author presented at IIT Patna.
+        </p>
+        <div class="btnrow">
+          <a href="#publications" class="btn btnp">View Publications</a>
+          <a href="#contact" class="btn btns">Contact Details</a>
         </div>
-        <details id="job-market-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow: hidden;">
-          <summary id="job-market-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-          <div style="margin-top: 18px; text-align: center;">
-            <a href="./job-market-workflow.png" target="_blank" style="display: inline-block; text-decoration: none;">
-              <img src="./job-market-workflow.png" alt="Workflow diagram for Job Market Analysis Using Machine Learning and AWS" style="width: 100%; max-width: 620px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            </a>
-            <p style="margin-top: 10px; font-size: 0.94rem; color: var(--muted);">Click the workflow image to enlarge.</p>
-          </div>
-        </details>
-        <script>
-          (function () {
-            const details = document.getElementById('job-market-details');
-            const summary = document.getElementById('job-market-toggle');
-            if (details && summary) {
-              const updateLabel = () => {
-                summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-              };
-              updateLabel();
-              details.addEventListener('toggle', updateLabel);
-            }
-          })();
-        </script>
       </div>
-    </div>
-  </section>
 
-  <section id="experience">
-    <h2 class="section-title">Experience & Internship</h2>
-    <div class="timeline-item">
-      <h3>Summer Research Intern – ARCI</h3>
-      <div class="timeline-meta">Incoming</div>
-      <p>
-        Preparing to join the International Advanced Research Centre for Powder Metallurgy and New Materials (ARCI) for summer research, with a focus aligned toward advanced AI-driven and sustainability-oriented systems research.
-      </p>
-    </div>
-  </section>
+      <div class="hside rv" style="transition-delay:0.15s">
+        <div class="photowrap">
+          <img src="lokesh-photo.jpg" alt="Lokesh Manepalli" />
+        </div>
+        <div class="hlcard">
+          <h4>Current Highlights</h4>
+          <div class="hli">Incoming Summer Research Intern at ARCI</div>
+          <div class="hli">First-author research presented at IIT Patna Research Conference ICADCA (Dec 2025)</div>
+          <div class="hli">Working across AI for mental health, NLP, explainable AI, and renewable energy systems</div>
+          <div class="hli">Building end-to-end, systems-level research architectures for real-world impact</div>
+        </div>
+      </div>
+    </section>
 
-  <section id="conferences">
-    <h2 class="section-title">Conferences & Presentations</h2>
-    <div class="timeline-item">
-      <h3>IIT Patna Research Conference – ICADCA</h3>
-      <div class="timeline-meta">December 2025</div>
-      <p>
-        Presented first-author research work on MITRA, a deep learning–based emotion-aware conversational AI for student mental health assessment and monitoring.
-      </p>
-      <details id="conference-details" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
-        <summary id="conference-toggle" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-        <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
-          <div class="card" style="padding: 16px; overflow: hidden;">
-            <img src="./iit-stage.jpg" alt="Lokesh Manepalli presenting at IIT Patna" style="width: 100%; height: 320px; border-radius: 16px; object-fit: cover; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            <p style="color: #ffffff; font-weight: 700; margin-bottom: 6px;">On-Stage Presentation</p>
-            <p>Presenting MITRA at IIT Patna Research Conference during the technical session.</p>
-          </div>
-          <div class="card" style="padding: 16px; overflow: hidden;">
-            <img src="./iit-poster.jpg" alt="Lokesh Manepalli with conference poster at IIT Patna" style="width: 100%; height: 320px; border-radius: 16px; object-fit: cover; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-            <p style="color: #ffffff; font-weight: 700; margin-bottom: 6px;">Conference Poster Session</p>
-            <p>Standing with the conference poster during ICADCA, documenting an important academic milestone.</p>
+    <!-- ── STATS ── -->
+    <section id="stats" class="sec">
+      <div class="sechd"><h2 class="sectitle">Achievements at a Glance</h2></div>
+      <div class="sgrid">
+        <div class="sc rv">
+          <div class="sv">IIT Patna</div>
+          <div class="sl">First-Author Presenter</div>
+        </div>
+        <div class="sc rv" style="transition-delay:.08s">
+          <div class="sv">ARCI</div>
+          <div class="sl">Incoming Research Intern</div>
+        </div>
+        <div class="sc rv" style="transition-delay:.16s">
+          <div class="sv" data-count="4">0</div>
+          <div class="sl">Research Works</div>
+        </div>
+        <div class="sc rv" style="transition-delay:.24s">
+          <div class="sv">HTR</div>
+          <div class="sl">Honours Through Research Program</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="sec">
+      <div class="sechd"><h2 class="sectitle">About Me</h2></div>
+      <div class="aboutcard rv">
+        <p>I am an undergraduate researcher in the Honors Through Research (HTR) Program at Koneru Lakshmaiah Education Foundation (KLEF), specializing in Artificial Intelligence for Computational Intelligence.</p>
+        <p>My research philosophy is driven by a systems-level approach: I do not just train algorithms; I build end-to-end architectures that solve complex, real-world problems. Currently, my work spans two critical domains: Human-Computer Interaction (Mental Health) and the Water-Energy Nexus (Renewable Energy).</p>
+        <p>I am currently working under the mentorship of Dr. S. Shanmugan and am preparing to join the International Advanced Research Centre for Powder Metallurgy and New Materials (ARCI) as a Summer Research Intern. After completing my B.Tech, I intend to pursue a Fast-Track PhD in Germany to continue my work on AI-driven sustainable infrastructures.</p>
+      </div>
+    </section>
+
+    <!-- ── INTERESTS ── -->
+    <section id="interests" class="sec">
+      <div class="sechd"><h2 class="sectitle">Research Interests</h2></div>
+      <div class="ipwrap rv">
+        <span class="ip">Emotion-Aware AI</span>
+        <span class="ip">Natural Language Processing</span>
+        <span class="ip">Explainable AI</span>
+        <span class="ip">Human-Centered Computing</span>
+        <span class="ip">AI for Mental Health</span>
+        <span class="ip">Renewable Energy Systems</span>
+        <span class="ip">Water-Energy Nexus</span>
+        <span class="ip">AI-Driven Sustainable Infrastructure</span>
+      </div>
+    </section>
+
+    <!-- ── FEATURED RESEARCH ── -->
+    <section id="featured-research" class="sec">
+      <div class="sechd"><h2 class="sectitle">Featured Research</h2></div>
+      <div class="pub feat rv">
+        <h3>MITRA: A Deep Learning–Based Emotion-Aware Conversational AI</h3>
+        <div class="pmeta f">Featured Work</div>
+        <p>MITRA is a privacy-first, deep learning–based conversational AI system designed for student mental health assessment and monitoring in educational environments. The architecture combines BiLSTM and CNN models to identify emotional distress from informal text with 94.7% accuracy.</p>
+        <p>This work was presented at IIT Patna Research Conference ICADCA (Dec 2025) and reflects my broader research vision of building intelligent, human-centered systems that are both technically strong and ethically grounded.</p>
+        <div class="tags">
+          <span class="tag">Featured</span>
+          <span class="tag">Presented at IIT Patna</span>
+          <span class="tag">Privacy-First AI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PUBLICATIONS ── -->
+    <section id="publications" class="sec">
+      <div class="sechd"><h2 class="sectitle">Research Papers & Publications</h2></div>
+      <div class="pubstack">
+
+        <div class="pub rv">
+          <h3>Data and Privacy Risks in AI Chatbots</h3>
+          <div class="pmeta">Independent Research · Status: Completed</div>
+          <p>Focused on cybersecurity and data ethics in conversational agents. This study analyzed over 2,300 data breaches across 15 chatbot platforms from 2004 to 2021 and found that 62% of platforms lacked strong encryption while 14% showed vulnerability to data poisoning.</p>
+          <p>This served as my foundational research project and directly informed the privacy, security, and data-anonymization framework later used in the MITRA chatbot architecture.</p>
+          <div class="tags">
+            <span class="tag">Cybersecurity</span>
+            <span class="tag">AI Ethics</span>
+            <span class="tag">Chatbots</span>
           </div>
         </div>
-      </details>
-      <script>
-        (function () {
-          const details = document.getElementById('conference-details');
-          const summary = document.getElementById('conference-toggle');
-          if (details && summary) {
-            const updateLabel = () => {
-              summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-            };
-            updateLabel();
-            details.addEventListener('toggle', updateLabel);
-          }
-        })();
-      </script>
-    </div>
-    <div class="timeline-item">
-  <h3>AFMQSST 2026 – International Conference (K L University)</h3>
-  <div class="timeline-meta">April 02–04, 2026</div>
-  <p>
-    Presented my second research work on AI-integrated solar desalination and green hydrogen systems, focusing on sustainable and energy-efficient technologies.
-  </p>
-  <p>
-    Participated in a global research platform bringing together experts in functional materials and quantum sciences for sustainable innovation.
-  </p>
 
-  <details id="conference-details-2" style="margin-top: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 18px 18px 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);">
-    <summary id="conference-toggle-2" style="cursor: pointer; color: #8ddcff; font-weight: 700; font-size: 1rem; list-style: none;">View More Details</summary>
-    
-    <div style="margin-top: 18px; display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center;">
-      
-      <div class="card" style="padding: 16px; overflow: hidden; text-align:center;">
-        <img src="./afmqsst-certificate.jpg" alt="AFMQSST 2026 Conference Certificate" style="width: 100%; max-width: 620px; border-radius: 16px; object-fit: cover; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 14px 28px rgba(0,0,0,0.2);" />
-        <p style="color: #ffffff; font-weight: 700; margin-bottom: 6px;">Conference Certificate</p>
-        <p>Successfully presented research at AFMQSST 2026 International Conference.</p>
+        <div class="pub rv" style="transition-delay:.08s">
+          <h3>MITRA: A Deep Learning–Based Emotion-Aware Conversational AI</h3>
+          <div class="pmeta">First Author · Presented at IIT Patna ICADCA (Dec 2025) · Under Review – IJAIED (Springer)</div>
+          <p>Focused on mental health assessment and monitoring in educational environments. I developed a BiLSTM-CNN hybrid deep learning architecture that achieved 94.7% accuracy in detecting student emotional distress from informal text.</p>
+          <p>The system was built on a privacy-first design, utilizing end-to-end encryption to protect sensitive student data.</p>
+          <div class="tags">
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Mental Health AI</span>
+            <span class="tag">NLP</span>
+          </div>
+        </div>
+
+        <div class="pub rv" style="transition-delay:.16s">
+          <h3>AI-Based Solar Desalination for Green Hydrogen Production</h3>
+          <div class="pmeta">Co-Authored with Dr. S. Shanmugan · Under Review – Renewable and Sustainable Energy Reviews (Elsevier)</div>
+          <p>A comprehensive 70+ page architectural review bridging the Water-Energy-Hydrogen nexus. This work proposes a conceptual digital twin framework and an AI-driven adaptive control system for renewable desalination and green hydrogen generation.</p>
+          <p>The architecture integrates smart photothermal materials for continuous and optimized hydrogen production.</p>
+          <div class="tags">
+            <span class="tag">Renewable Energy</span>
+            <span class="tag">Hydrogen</span>
+            <span class="tag">Solar Desalination</span>
+          </div>
+        </div>
+
+        <div class="pub rv" style="transition-delay:.24s">
+          <h3>Interpretable Text Message Spam Detection via a Novel Fuzzy–Bidirectional XGBoost Architecture</h3>
+          <div class="pmeta">First Author · Manuscript Complete – Ready for Submission</div>
+          <p>Focused on explainable AI, natural language processing, and cybersecurity. I engineered a tri-level feature representation system combining TF-IDF, BiLSTM-based semantic features, and fuzzy linguistic modeling.</p>
+          <p>Integrated with an XGBoost classifier and SHAP analysis, the model achieved 98.24% accuracy and 93.19% F1-score while maintaining strong human-readability and transparency.</p>
+          <div class="tags">
+            <span class="tag">Explainable AI</span>
+            <span class="tag">Spam Detection</span>
+            <span class="tag">XGBoost</span>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <p style="text-align:center;">
-        <a href="https://www.linkedin.com/posts/lokesh-manepalli-4147b928a_researchjourney-klef-iitpatna-share-7456333866367127552-ClCh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEY97hABYxX0Qb5ncBPnpbG7dFMT0nac72s" target="_blank">View LinkedIn Post</a>
-      </p>
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="sec">
+      <div class="sechd"><h2 class="sectitle">Projects</h2></div>
+      <div class="pgrid">
 
-    </div>
-  </details>
+        <div class="pc rv">
+          <h3>Satellite Image Super-Resolution for Noisy Images</h3>
+          <div class="pm">
+            <p><strong>Role:</strong> Team Lead</p>
+            <p><strong>Tech:</strong> Vanilla GAN, DCGAN, SRGAN, ESRGAN, CycleGAN</p>
+          </div>
+          <p class="po">▲ 12% PSNR improvement using ESRGAN on EuroSAT, RESISC45, and SpaceNet datasets.</p>
+          <details id="satellite-details" class="xd">
+            <summary id="satellite-toggle">View More Details</summary>
+            <div class="xdi">
+              <a href="./satellite-super-resolution.png" target="_blank">
+                <img src="./satellite-super-resolution.png" alt="Satellite Image Super-Resolution project result" />
+              </a>
+              <p class="xdc">Click the image to enlarge.</p>
+            </div>
+          </details>
+        </div>
 
-  <script>
-    (function () {
-      const details = document.getElementById('conference-details-2');
-      const summary = document.getElementById('conference-toggle-2');
-      if (details && summary) {
-        const updateLabel = () => {
-          summary.textContent = details.open ? 'Hide Details' : 'View More Details';
-        };
-        updateLabel();
-        details.addEventListener('toggle', updateLabel);
-      }
-    })();
-  </script>
-</div>
-  </section>
+        <div class="pc rv" style="transition-delay:.08s">
+          <h3>Full-Stack Video Streaming Platform</h3>
+          <div class="pm">
+            <p><strong>Role:</strong> Team Lead</p>
+            <p><strong>Tech:</strong> React, Node.js, MySQL</p>
+          </div>
+          <p class="po">▲ Scalable platform with adaptive bitrate streaming and secure auth for 30+ active users.</p>
+        </div>
 
-  <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills">
-      <span class="skill-pill">PyTorch</span> <span class="skill-pill">TensorFlow</span>
-      <span class="skill-pill">CNNs</span> <span class="skill-pill">LSTMs</span>
-      <span class="skill-pill">GANs</span> <span class="skill-pill">Explainable AI (SHAP)</span>
-      <span class="skill-pill">NLP</span> <span class="skill-pill">Python</span>
-      <span class="skill-pill">Java</span> <span class="skill-pill">Git</span>
-      <span class="skill-pill">Docker</span> <span class="skill-pill">Jenkins</span>
-      <span class="skill-pill">LaTeX</span> <span class="skill-pill">React</span>
-      <span class="skill-pill">Node.js</span> <span class="skill-pill">MySQL</span>
-    </div>
-  </section>
+        <div class="pc rv" style="transition-delay:.16s">
+          <h3>KLU Agent Chatbot (Gen-AI College Assistant)</h3>
+          <div class="pm">
+            <p><strong>Role:</strong> Full-Stack Developer</p>
+            <p><strong>Tech:</strong> Python, Flask, Anthropic Claude API, HTML/CSS/JS</p>
+          </div>
+          <p class="po">▲ 24/7 AI-powered college assistant with multi-turn memory for student support and campus queries.</p>
+        </div>
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Email</h3>
-        <p><a href="mailto:lokeshmanepalli69@gmail.com">Send an Email</a></p>
+        <div class="pc rv" style="transition-delay:.24s">
+          <h3>Job Market Analysis Using Machine Learning and AWS</h3>
+          <div class="pm">
+            <p><strong>Role:</strong> Machine Learning & Cloud Analytics</p>
+            <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, AWS S3, Glue, Athena</p>
+          </div>
+          <div class="tags" style="margin-bottom:12px;margin-top:0">
+            <span class="tag">AWS</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Data Pipeline</span>
+            <span class="tag">Athena Analytics</span>
+          </div>
+          <p class="po">▲ Cloud-integrated analytics pipeline for job roles, salary patterns, and demand across locations.</p>
+          <details id="job-market-details" class="xd">
+            <summary id="job-market-toggle">View More Details</summary>
+            <div class="xdi">
+              <a href="./job-market-workflow.png" target="_blank">
+                <img src="./job-market-workflow.png" alt="Workflow diagram for Job Market Analysis" />
+              </a>
+              <p class="xdc">Click the workflow image to enlarge.</p>
+            </div>
+          </details>
+        </div>
+
       </div>
-      <div class="card">
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/lokesh-manepalli-4147b928a/" target="_blank">Connect on LinkedIn</a></p>
-      </div>
-      <div class="card">
-        <h3>GitHub</h3>
-        <p><a href="https://github.com/lokeshmanepalli" target="_blank">View GitHub Profile</a></p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="references">
-    <h2 class="section-title">Mentorship & Reference</h2>
-    <div class="timeline-item">
-      <h3>Supported by World-Class Mentorship</h3>
-      <div class="timeline-meta">Dr. S. Shanmugan</div>
-      <p>Stanford Top 2% Scientist | Research Mentor, Research Centre for Solar Energy, KLEF</p>
-    </div>
-  </section>
+    <!-- ── EXPERIENCE ── -->
+    <section id="experience" class="sec">
+      <div class="sechd"><h2 class="sectitle">Experience & Internship</h2></div>
+      <div class="tl">
+        <div class="tc rv">
+          <h3>Summer Research Intern – ARCI</h3>
+          <div class="tcm">Incoming</div>
+          <p>Preparing to join the International Advanced Research Centre for Powder Metallurgy and New Materials (ARCI) for summer research, with a focus aligned toward advanced AI-driven and sustainability-oriented systems research.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONFERENCES ── -->
+    <section id="conferences" class="sec">
+      <div class="sechd"><h2 class="sectitle">Conferences & Presentations</h2></div>
+      <div class="tl">
+
+        <div class="tc rv">
+          <h3>IIT Patna Research Conference – ICADCA</h3>
+          <div class="tcm">December 2025</div>
+          <p>Presented first-author research work on MITRA, a deep learning–based emotion-aware conversational AI for student mental health assessment and monitoring.</p>
+          <details id="conference-details" class="xd">
+            <summary id="conference-toggle">View More Details</summary>
+            <div class="cgrid">
+              <div class="cpc">
+                <img src="./iit-stage.jpg" alt="Lokesh Manepalli presenting at IIT Patna" />
+                <div class="cpcc">
+                  <strong>On-Stage Presentation</strong>
+                  <span>Presenting MITRA at IIT Patna Research Conference during the technical session.</span>
+                </div>
+              </div>
+              <div class="cpc">
+                <img src="./iit-poster.jpg" alt="Lokesh Manepalli with conference poster at IIT Patna" />
+                <div class="cpcc">
+                  <strong>Conference Poster Session</strong>
+                  <span>Standing with the conference poster during ICADCA, documenting an important academic milestone.</span>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="tc rv" style="transition-delay:.1s">
+          <h3>AFMQSST 2026 – International Conference (K L University)</h3>
+          <div class="tcm">April 02–04, 2026</div>
+          <p>Presented my second research work on AI-integrated solar desalination and green hydrogen systems, focusing on sustainable and energy-efficient technologies.</p>
+          <p>Participated in a global research platform bringing together experts in functional materials and quantum sciences for sustainable innovation.</p>
+          <details id="conference-details-2" class="xd">
+            <summary id="conference-toggle-2">View More Details</summary>
+            <div class="xdi">
+              <img src="./afmqsst-certificate.jpg" alt="AFMQSST 2026 Conference Certificate" style="max-width:580px" />
+              <p class="xdc">Conference Certificate – AFMQSST 2026</p>
+              <p style="margin-top:12px">
+                <a href="https://www.linkedin.com/posts/lokesh-manepalli-4147b928a_researchjourney-klef-iitpatna-share-7456333866367127552-ClCh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEY97hABYxX0Qb5ncBPnpbG7dFMT0nac72s"
+                   target="_blank"
+                   style="color:var(--acl);font-size:0.9rem;text-decoration:none;">View LinkedIn Post →</a>
+              </p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills" class="sec">
+      <div class="sechd"><h2 class="sectitle">Technical Skills</h2></div>
+      <div class="skwrap rv">
+        <span class="sk">PyTorch</span>
+        <span class="sk">TensorFlow</span>
+        <span class="sk">CNNs</span>
+        <span class="sk">LSTMs</span>
+        <span class="sk">GANs</span>
+        <span class="sk">Explainable AI (SHAP)</span>
+        <span class="sk">NLP</span>
+        <span class="sk">Python</span>
+        <span class="sk">Java</span>
+        <span class="sk">Git</span>
+        <span class="sk">Docker</span>
+        <span class="sk">Jenkins</span>
+        <span class="sk">LaTeX</span>
+        <span class="sk">React</span>
+        <span class="sk">Node.js</span>
+        <span class="sk">MySQL</span>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="sec">
+      <div class="sechd"><h2 class="sectitle">Contact</h2></div>
+      <div class="ctgrid rv">
+        <div class="ctc">
+          <span class="ct-icon">✉️</span>
+          <h3>Email</h3>
+          <a href="mailto:lokeshmanepalli69@gmail.com">Send a Mail</a>
+        </div>
+        <div class="ctc">
+          <span class="ct-icon">💼</span>
+          <h3>LinkedIn</h3>
+          <a href="https://www.linkedin.com/in/lokesh-manepalli-4147b928a/" target="_blank">Connect on LinkedIn</a>
+        </div>
+        <div class="ctc">
+          <span class="ct-icon">⌨️</span>
+          <h3>GitHub</h3>
+          <a href="https://github.com/lokeshmanepalli" target="_blank">View GitHub Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── REFERENCE ── -->
+    <section id="references" class="sec">
+      <div class="sechd"><h2 class="sectitle">Mentorship & Reference</h2></div>
+      <div class="refc rv">
+        <h3>Supported by World-Class Mentorship</h3>
+        <div class="refname">Dr. S. Shanmugan</div>
+        <p>Stanford Top 2% Scientist | Research Mentor, Research Centre for Solar Energy, KLEF</p>
+      </div>
+    </section>
+
+  </div><!-- end .pw -->
 
   <footer>
     <p>Building AI systems for human-centered computing and sustainable infrastructures.</p>
-    <p style="margin-top: 8px;">© 2026 Lokesh Manepalli | Portfolio</p>
+    <p style="margin-top:6px">© 2026 Lokesh Manepalli | Portfolio</p>
   </footer>
+
+  <script>
+    // ── Scroll progress ──
+    const bar = document.getElementById('sp');
+    window.addEventListener('scroll', () => {
+      bar.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
+    }, { passive:true });
+
+    // ── Back to top ──
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 400);
+    }, { passive:true });
+
+    // ── Typewriter ──
+    const lines = [
+      'Undergraduate Student · AI Researcher',
+      'Deep Learning & NLP Specialist',
+      'Renewable Energy Systems Researcher',
+      'Creator of MITRA Chatbot'
+    ];
+    let li=0, ci=0, del=false;
+    const tw = document.getElementById('tw');
+    function tick() {
+      const cur = lines[li];
+      if (!del) {
+        tw.textContent = cur.slice(0, ++ci);
+        if (ci === cur.length) { del=true; setTimeout(tick, 2000); return; }
+      } else {
+        tw.textContent = cur.slice(0, --ci);
+        if (ci === 0) { del=false; li=(li+1)%lines.length; }
+      }
+      setTimeout(tick, del ? 36 : 60);
+    }
+    tick();
+
+    // ── Scroll reveal ──
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+    }, { threshold:0.1 });
+    document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+    // ── Counter ──
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const co = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          const tgt = +el.dataset.count; let v=0;
+          const t = setInterval(() => {
+            v = Math.min(v + tgt/40, tgt);
+            el.textContent = Math.floor(v);
+            if (v >= tgt) clearInterval(t);
+          }, 30);
+          co.disconnect();
+        }
+      }, { threshold:0.5 });
+      co.observe(el);
+    });
+
+    // ── Hamburger ──
+    const hb = document.getElementById('hb');
+    const mm = document.getElementById('mm');
+    hb.addEventListener('click', () => {
+      hb.classList.toggle('open');
+      mm.classList.toggle('open');
+    });
+    mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hb.classList.remove('open');
+      mm.classList.remove('open');
+    }));
+
+    // ── Active nav ──
+    const secs = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nlinks a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+      links.forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
+      });
+    }, { passive:true });
+
+    // ── Details toggle labels ──
+    [
+      ['satellite-details',    'satellite-toggle'],
+      ['job-market-details',   'job-market-toggle'],
+      ['conference-details',   'conference-toggle'],
+      ['conference-details-2', 'conference-toggle-2'],
+    ].forEach(([dId, sId]) => {
+      const d = document.getElementById(dId);
+      const s = document.getElementById(sId);
+      if (!d || !s) return;
+      const upd = () => s.textContent = d.open ? 'Hide Details' : 'View More Details';
+      upd(); d.addEventListener('toggle', upd);
+    });
+  </script>
+
 </body>
 </html>
